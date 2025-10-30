@@ -12,6 +12,9 @@ let fortunes = [
 ];
 
 // const fontFamily = ["Story Script", "Limelight", "Lavishly Yours", "Macondo"]
+const index = Math.floor(Math.random() * fortunes.length)
+
+document.getElementById("fortune-message").innerText = fortunes[index]
 
 if (window.location.pathname.endsWith("custom-fortune.html")){
         let updatedFortune = localStorage.getItem("updatedFortune");
@@ -22,9 +25,7 @@ if (window.location.pathname.endsWith("custom-fortune.html")){
     }
 
 if (window.location.pathname.endsWith("index.html")){
-        const index = Math.floor(Math.random() * fortunes.length)
 
-        document.getElementById("fortune-message").innerText = fortunes[index]
         let updatedFortune = localStorage.getItem("updatedFortune");
 
         if (updatedFortune){
@@ -125,5 +126,6 @@ function submitFortune(){
 // console.log(fortunes)
 
 document.getElementById("ModifiedTime").textContent = document.lastModified;
+
 
 
