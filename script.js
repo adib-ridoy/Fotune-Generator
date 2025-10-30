@@ -1,22 +1,50 @@
-document.getElementById("ModifiedTime").textContent = document.lastModified;
-const fortunes = [
-    "You will have a great day!",
-    "Success is in your future.",
-    "Happiness is coming your way.",
-    "You will find what you seek.",
-    "A pleasant surprise is waiting for you.",
-    "You will achieve your goals.",
-    "Good fortune will come to you.",
-    "You will make a new friend.",
-    "Expect good news soon.",
-    "Your hard work will pay off."
+fortunes = [
+"You will have a great day!",
+"Success is in your future.",
+"Happiness is coming your way.",
+"You will find what you seek.",
+"A pleasant surprise is waiting for you.",
+"You will achieve your goals.",
+"Good fortune will come to you.",
+"You will make a new friend.",
+"Expect good news soon.",
+"Your hard work will pay off."
 ];
 
-
-// const index = Math.floor(Math.random() * fortunes.length)
-
-// document.getElementById("fortune-message").innerText = fortunes[index]
 const fontFamily = ["Story Script", "Limelight", "Lavishly Yours", "Macondo"]
+
+if (window.location.pathname.endsWith("custom-fortune.html")){
+        let updatedFortune = localStorage.getItem("updatedFortune");
+
+        if (updatedFortune){
+            fortunes = updatedFortune.split(",")
+        }
+    }
+
+if (window.location.pathname.endsWith("index.html")){
+        let updatedFortune = localStorage.getItem("updatedFortune");
+
+        if (updatedFortune){
+            fortunes = updatedFortune.split(",")
+        }
+
+    window.onload = function(){
+        let box = document.getElementById("changeEffect");
+        box.style.borderColor = localStorage.getItem("border-color");
+        box.style.fontFamily = localStorage.getItem("font-fam");
+        box.style.fontSize = localStorage.getItem("font-size");
+        box.style.backgroundColor = localStorage.getItem("back-color");
+        box.style.color = localStorage.getItem("font-color");
+
+        const index = Math.floor(Math.random() * fortunes.length)
+
+        document.getElementById("fortune-message").innerText = fortunes[index]
+        
+
+    }
+}
+
+
 
 
 
@@ -78,23 +106,19 @@ function changeGreen(){
 function submitFortune(){
     let fortune = document.getElementById("new-fortune").value;
     if (fortune.trim() != ""){
+
         fortunes.push(fortune);
-        console.log(fortune)
+        // console.log(fortune);
         document.getElementById("new-fortune").value="";
+        // console.log(fortunes);
+        localStorage.setItem("updatedFortune", fortunes.join(",")); 
+    } 
+    else{
+        alert("Please enter something!");
     }
 }
 
 
+// console.log(fortunes)
 
-window.onload = function(){
-    let box = document.getElementById("changeEffect");
-    box.style.borderColor = localStorage.getItem("border-color");
-    box.style.fontFamily = localStorage.getItem("font-fam");
-    box.style.fontSize = localStorage.getItem("font-size");
-    box.style.backgroundColor = localStorage.getItem("back-color");
-    box.style.color = localStorage.getItem("font-color");
-    const index = Math.floor(Math.random() * fortunes.length)
-
-    document.getElementById("fortune-message").innerText = fortunes[index]
-
-}
+document.getElementById("ModifiedTime").textContent = document.lastModified;
