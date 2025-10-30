@@ -1,4 +1,4 @@
-fortunes = [
+let fortunes = [
 "You will have a great day!",
 "Success is in your future.",
 "Happiness is coming your way.",
@@ -11,7 +11,7 @@ fortunes = [
 "Your hard work will pay off."
 ];
 
-const fontFamily = ["Story Script", "Limelight", "Lavishly Yours", "Macondo"]
+// const fontFamily = ["Story Script", "Limelight", "Lavishly Yours", "Macondo"]
 
 if (window.location.pathname.endsWith("custom-fortune.html")){
         let updatedFortune = localStorage.getItem("updatedFortune");
@@ -125,4 +125,5 @@ function submitFortune(){
 // console.log(fortunes)
 
 document.getElementById("ModifiedTime").textContent = document.lastModified;
+
 
