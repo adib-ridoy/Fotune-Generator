@@ -48,7 +48,12 @@ if (window.location.pathname.endsWith("index.html")){
     }
 }
 
-
+const input = document.getElementById("new-fortune");
+input.addEventListener("keydown", function(enter){
+    if (enter.key === "Enter"){
+        submitFortune();
+    }
+})
 
 
 
@@ -126,6 +131,7 @@ function submitFortune(){
 // console.log(fortunes)
 
 document.getElementById("ModifiedTime").textContent = document.lastModified;
+
 
 
 
