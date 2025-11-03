@@ -11,12 +11,9 @@ let fortunes = [
 "Your hard work will pay off."
 ];
 
-// const fontFamily = ["Story Script", "Limelight", "Lavishly Yours", "Macondo"]
-const index = Math.floor(Math.random() * fortunes.length)
+const fontFamily = ["Story Script", "Limelight", "Lavishly Yours", "Macondo"]
 
-document.getElementById("fortune-message").innerText = fortunes[index]
-
-if (window.location.pathname.endsWith("index.html") || document.location.pathname.endsWith("/")){
+if (window.location.pathname.endsWith("custom-fortune.html")){
         let updatedFortune = localStorage.getItem("updatedFortune");
 
         if (updatedFortune){
@@ -24,13 +21,15 @@ if (window.location.pathname.endsWith("index.html") || document.location.pathnam
         }
     }
 
-if (window.location.pathname.endsWith("index.html")){
+if (window.location.pathname.endsWith("index.html") || document.location.pathname.endsWith("/")){
+    const index = Math.floor(Math.random() * fortunes.length)
+    let updatedFortune = localStorage.getItem("updatedFortune");
+    document.getElementById("fortune-message").innerText = fortunes[index]
+    
 
-        let updatedFortune = localStorage.getItem("updatedFortune");
-
-        if (updatedFortune){
-            fortunes = updatedFortune.split(",")
-        }
+    if (updatedFortune){
+        fortunes = updatedFortune.split(",")
+    }
 
     window.onload = function(){
         let box = document.getElementById("changeEffect");
@@ -131,8 +130,3 @@ function submitFortune(){
 // console.log(fortunes)
 
 document.getElementById("ModifiedTime").textContent = document.lastModified;
-
-
-
-
-
