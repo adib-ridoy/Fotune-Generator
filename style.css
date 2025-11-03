@@ -35,7 +35,6 @@ h1{
     font-size: 3rem;
     font-style: italic;
     font-weight: 500;
-    color: black;
     color: #A72703;
 
 }
@@ -73,6 +72,7 @@ h1{
     padding: 10px;
     text-align: center;
     font-size: 2rem;
+    border-radius: 20px;
 }
 .fortune-box{
     border: 3px solid #A72703;
@@ -100,9 +100,15 @@ h1{
     cursor: pointer; 
 
 }
+.submit-button:hover{
+    background-color: #4b1607;
+    color: #ad300d;
+}
 .input-box{
     width: 60%;
     height: 70px;
+    border: groove;
+    border-radius: 20px;
     margin-left: 20%;
     margin-right: 20%;
     text-align: center;
